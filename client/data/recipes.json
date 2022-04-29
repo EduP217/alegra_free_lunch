@@ -1,0 +1,236 @@
+[
+    {
+        "id": "R-001",
+        "name": "Mechadong Baka with lettuce salad",
+        "image": "images/R-001.jpg",
+        "description": "Mechadong Baka (Beef Mechado) is a tangy Filipino beef tomato stew. Mecha meaning wick for the strip of fat sticking out of the beef like a candle. ",
+        "cook-time-min": 35,
+        "ingredients": [
+            {
+                "id": "I-001",
+                "name": "tomato",
+                "quantity": 2
+            },
+            {
+                "id": "I-002",
+                "name": "potato",
+                "quantity": 1
+            },
+            {
+                "id": "I-003",
+                "name": "rice",
+                "quantity": 1
+            },
+            {
+                "id": "I-004",
+                "name": "onion",
+                "quantity": 2
+            },
+            {
+                "id": "I-005",
+                "name": "cheese",
+                "quantity": 1
+            },
+            {
+                "id": "I-006",
+                "name": "meat",
+                "quantity": 1
+            },
+            {
+                "id": "I-007",
+                "name": "chicken",
+                "quantity": 1
+            },
+            {
+                "id": "I-008",
+                "name": "lettuce",
+                "quantity": 1
+            },
+            {
+                "id": "I-009",
+                "name": "lemon",
+                "quantity": 1
+            },
+            {
+                "id": "I-010",
+                "name": "ketchup",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "R-002",
+        "name": "Rice burger with cheese",
+        "image": "images/R-002.jpg",
+        "description": "This Rice Burger with cheese has a tasty meat patty coated with ketchup sauce and served on a rice bun; it's the classic hamburger with a Japanese twist!",
+        "cook-time-min": 20,
+        "ingredients": [
+            {
+                "id": "I-006",
+                "name": "meat",
+                "quantity": 1
+            },
+            {
+                "id": "I-005",
+                "name": "cheese",
+                "quantity": 1
+            },
+            {
+                "id": "I-003",
+                "name": "rice",
+                "quantity": 1
+            },
+            {
+                "id": "I-004",
+                "name": "onion",
+                "quantity": 2
+            },
+            {
+                "id": "I-001",
+                "name": "tomato",
+                "quantity": 2
+            },
+            {
+                "id": "I-008",
+                "name": "lettuce",
+                "quantity": 1
+            },
+            {
+                "id": "I-010",
+                "name": "ketchup",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "R-003",
+        "name": "Cheesy Chicken and Rice Soup",
+        "image": "images/R-003.jpg",
+        "description": "Cheesy Chicken and Rice Soup….it's so delish! Take a peek here then head over to snag the recipe along with some tips to get the kids in the kitchen",
+        "cook-time-min": 20,
+        "ingredients": [
+            {
+                "id": "I-007",
+                "name": "chicken",
+                "quantity": 1
+            },
+            {
+                "id": "I-005",
+                "name": "cheese",
+                "quantity": 1
+            },
+            {
+                "id": "I-003",
+                "name": "rice",
+                "quantity": 2
+            },
+            {
+                "id": "I-004",
+                "name": "onion",
+                "quantity": 1
+            },
+            {
+                "id": "I-001",
+                "name": "tomato",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "R-004",
+        "name": "Chicken Salad",
+        "image": "images/R-004.jpg",
+        "description": "Chicken Salad with an amazing flavour.",
+        "cook-time-min": 20,
+        "ingredients": [
+            {
+                "id": "I-007",
+                "name": "chicken",
+                "quantity": 1
+            },
+            {
+                "id": "I-001",
+                "name": "tomato",
+                "quantity": 1
+            },
+            {
+                "id": "I-008",
+                "name": "lettuce",
+                "quantity": 1
+            },
+            {
+                "id": "I-009",
+                "name": "lemon",
+                "quantity": 1
+            },
+            {
+                "id": "I-004",
+                "name": "onion",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "R-005",
+        "name": "Crunchy Onion Chicken Mashed Potatoes",
+        "image": "images/R-005.jpg",
+        "description": "Crunchy Onion Chicken Mashed Potatoes with an amazing flavour.",
+        "cook-time-min": 40,
+        "ingredients": [
+            {
+                "id": "I-007",
+                "name": "chicken",
+                "quantity": 1
+            },
+            {
+                "id": "I-004",
+                "name": "onion",
+                "quantity": 2
+            },
+            {
+                "id": "I-005",
+                "name": "cheese",
+                "quantity": 1
+            },
+            {
+                "id": "I-002",
+                "name": "potato",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "R-006",
+        "name": "Grilled Meat with rice and mashed potatoes",
+        "image": "images/R-006.jpg",
+        "description": "Grilled Meat with rice and mashed potatoes with an amazing flavour.",
+        "cook-time-min": 40,
+        "ingredients": [
+            {
+                "id": "I-006",
+                "name": "meat",
+                "quantity": 1
+            },
+            {
+                "id": "I-002",
+                "name": "potato",
+                "quantity": 1
+            },
+            {
+                "id": "I-003",
+                "name": "rice",
+                "quantity": 1
+            },
+            {
+                "id": "I-004",
+                "name": "onion",
+                "quantity": 2
+            },
+            {
+                "id": "I-005",
+                "name": "cheese",
+                "quantity": 1
+            }
+        ]
+    }
+]

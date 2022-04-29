@@ -9,10 +9,10 @@ function renderRecipes(list) {
 
     for (const i of list) {
         let item = template.content.cloneNode(true);
-        let itemImage = item.querySelector("#item-image");
-        let itemName = item.querySelector("#item-name");
-        let itemDescription = item.querySelector("#item-description");
-        let itemCookTime = item.querySelector("#item-cook-time");
+        let itemImage = item.querySelector(".item-image");
+        let itemName = item.querySelector(".item-name");
+        let itemDescription = item.querySelector(".item-description");
+        let itemCookTime = item.querySelector(".item-cook-time");
 
         itemImage.setAttribute("src",`${basepath}/assets/${i["image"]}`);
         itemImage.setAttribute("alt",i["name"]);

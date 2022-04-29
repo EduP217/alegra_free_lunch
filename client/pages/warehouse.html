@@ -40,14 +40,16 @@
         </template>
         <template id="item-purchase-history">
             <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32"
-                    class="rounded-circle flex-shrink-0">
+                <span class="fs-3 text-primary"><i class="bi-box-seam"></i></span>
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
-                        <h6 class="mb-0">List group item heading</h6>
-                        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+                        <h6 class="mb-0">P: 20/04/2022 10:15:00</h6>
+                        <h6 class="mb-0">R: 29/04/2022 17:15:00</h6>
+                        <p class="mb-0 opacity-75">
+                            tomato, potato, rice, onion, cheese, meat, chicken, ketchup, lettuce, lemon
+                        </p>
                     </div>
-                    <small class="opacity-50 text-nowrap">now</small>
+                    <small class="opacity-75 text-nowrap text-primary">Completed</small>
                 </div>
             </a>
         </template>
@@ -56,14 +58,14 @@
             </h2>
             <div class="row g-5 py-5 row-cols-1">
                 <div class="col-md-7 col-lg-8">
-                    <h4 class="pb-2">Recipe Ingredients</h4>                    
+                    <h4 class="pb-2">Stock Ingredients</h4>
                     <div class="table-responsive recipe-ingredients">
                         <table class="table" id="table-warehouse">
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Stock</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -104,7 +106,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-
+    <script src="../assets/js/utils.js"></script>
     <script src="../assets/js/warehouse.js"></script>
 </body>
 

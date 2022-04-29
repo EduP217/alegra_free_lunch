@@ -1,9 +1,11 @@
-function getData() {
-    renderWarehouse();
-    renderPurchaseHistory();
+async function init() {
+    /*let warehouse = await getData("data/warehouse.json");
+    renderWarehouse(warehouse.ingredients);
+    renderPurchaseHistory(warehouse.purchase);*/
+    renderPurchaseHistory()
 }
 
-function renderWarehouse() {
+function renderWarehouse(list) {
     const tbody = document.querySelector('#table-warehouse tbody');
     const template = document.querySelector('#item-table-ingredients');
 
@@ -11,7 +13,7 @@ function renderWarehouse() {
     tbody.appendChild(item);
 }
 
-function renderPurchaseHistory() {
+function renderPurchaseHistory(list) {
     const root = document.getElementById('list-purchase-history');
     const template = document.querySelector('#item-purchase-history');
 
@@ -20,4 +22,4 @@ function renderPurchaseHistory() {
 }
 
 
-getData();
+init();

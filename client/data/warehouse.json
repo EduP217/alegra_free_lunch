@@ -1,0 +1,146 @@
+{
+    "ingredients":[
+        {
+            "id": "I-001",
+            "name": "tomato",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-002",
+            "name": "potato",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-003",
+            "name": "rice",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-004",
+            "name": "onion",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-005",
+            "name": "cheese",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-006",
+            "name": "meat",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-007",
+            "name": "chicken",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-008",
+            "name": "lettuce",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-009",
+            "name": "lemon",
+            "stock": 5,
+            "status": "available"
+        },
+        {
+            "id": "I-010",
+            "name": "ketchup",
+            "stock": 5,
+            "status": "available"
+        }
+    ],
+    "purchase":[
+        {
+            "id": "PI-003",
+            "purchased": "20/04/2022 10:15:00",
+            "received": "29/04/2022 17:15:00",
+            "status": "completed",
+            "ingredients": [
+                {
+                    "id": "I-001",
+                    "name": "tomato"
+                },
+                {
+                    "id": "I-002",
+                    "name": "potato"
+                },
+                {
+                    "id": "I-003",
+                    "name": "rice"
+                },
+                {
+                    "id": "I-004",
+                    "name": "onion"
+                },
+                {
+                    "id": "I-005",
+                    "name": "cheese"
+                },
+                {
+                    "id": "I-006",
+                    "name": "meat"
+                },
+                {
+                    "id": "I-007",
+                    "name": "chicken"
+                },
+                {
+                    "id": "I-008",
+                    "name": "lettuce"
+                },
+                {
+                    "id": "I-009",
+                    "name": "lemon"
+                },
+                {
+                    "id": "I-010",
+                    "name": "ketchup"
+                }
+            ]
+        },
+        {
+            "id": "PI-002",
+            "purchased": "10/04/2022 10:15:00",
+            "received": "15/04/2022 17:15:00",
+            "status": "failed",
+            "ingredients": [
+                {
+                    "id": "I-001",
+                    "name": "tomato"
+                },
+                {
+                    "id": "I-002",
+                    "name": "potato"
+                },
+                {
+                    "id": "I-003",
+                    "name": "rice"
+                }
+            ]
+        },
+        {
+            "id": "PI-001",
+            "purchased": "01/03/2022 10:15:00",
+            "received": "05/04/2022 17:15:00",
+            "status": "failed",
+            "ingredients": [
+                {
+                    "id": "I-010",
+                    "name": "ketchup"
+                }
+            ]
+        }
+    ]
+}

@@ -11,6 +11,11 @@
     object-position: center;
 }
 
+#hanging-recipes .card .card-body {
+    height: 360px;
+    overflow-y: auto;
+}
+
 #hanging-warehouse .food-historic-request {
     max-height: 500px;
     overflow-y: auto;

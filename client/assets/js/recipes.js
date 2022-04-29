@@ -14,11 +14,11 @@ function renderRecipes(list) {
         let itemDescription = item.querySelector(".item-description");
         let itemCookTime = item.querySelector(".item-cook-time");
 
-        itemImage.setAttribute("src",`${basepath}/assets/${i["image"]}`);
-        itemImage.setAttribute("alt",i["name"]);
-        itemName.innerHTML = i["name"];
+        itemImage.setAttribute("src",`${basepath}/assets/${i.image}`);
+        itemImage.setAttribute("alt",i.name);
+        itemName.innerHTML = i.name;
 
-        let iDescription = `${i["description"]}<br><br> <b>Ingredients</b><br><ul>`;
+        let iDescription = `${i.description}<br><br> <b>Ingredients</b><br><ul>`;
         i["ingredients"].forEach(el => {
             iDescription += `<li>${el.quantity} ${el.name}</li>`;
         });

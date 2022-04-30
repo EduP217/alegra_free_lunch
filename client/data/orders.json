@@ -4,7 +4,7 @@
             "id": "OR-006",
             "food": "Chicken Salad",
             "ordered": "29/04/2022 10:15:00",
-            "image": "images/R-003"
+            "image": "images/R-003.jpg"
         }
     ],
     "pick-up": [
@@ -12,13 +12,13 @@
             "id": "OR-005",
             "food": "Grilled Meat with rice and mashed potatoes",
             "ordered": "29/04/2022 12:15:00",
-            "image": "images/R-002"
+            "image": "images/R-002.jpg"
         },
         {
             "id": "OR-004",
             "food": "Mechadong Baka with lettuce salad",
             "ordered": "29/04/2022 10:15:00",
-            "image": "images/R-001"
+            "image": "images/R-001.jpg"
         }
     ],
     "history": [

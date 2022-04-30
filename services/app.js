@@ -42,9 +42,9 @@ app.get('/', function (req, res) {
     res.send(respuesta);
 });
 
-app.use('/app/v1/recipes', require('./routes/recipes.routes'));
-app.use('/app/v1/warehouse', require('./routes/warehouse.routes'));
-app.use('/app/v1/orders', require('./routes/orders.routes'));
+app.use('/api/v1/recipes', require('./routes/recipes.routes'));
+app.use('/api/v1/warehouse', require('./routes/warehouse.routes'));
+app.use('/api/v1/orders', require('./routes/orders.routes'));
 
 app.get('/buy', function (req, res) {
     res.send({"quantitySold": 2});

@@ -111,7 +111,7 @@ router.post('/', async (req, res) => {
     return res.status(201).send(message);
 });
 
-router.put('/', async (req, res) => {
+router.put('/update', async (req, res) => {
     //console.log(req);
     let orderId = req.body.id;
     let updateStatus = req.body.updateStatus;

@@ -133,7 +133,7 @@ router.post('/', async (req, res) => {
     return res.status(500).send(message);
 });
 
-router.put('/', async (req, res) => {
+router.put('/update', async (req, res) => {
     //console.log(req);
     let purchaseId = req.body.id;
     let updateStatus = req.body.updateStatus;

@@ -60,7 +60,7 @@ function postData(url, data) {
 }
 
 function putData(url, data) {
-    return fetch(`${apipath}/${url}`, { 
+    return fetch(`${apipath}/${url}/update`, { 
         method: 'PUT', 
         headers: { 'Content-Type': 'application/json' }, 
         body: JSON.stringify(data) 

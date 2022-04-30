@@ -28,7 +28,7 @@ function renderOrdersOnHold(list) {
 
         let itemClick = item.querySelector("a");
         itemClick.addEventListener("click",async () => {
-            const res = await putData("orders", i.id ,{updateStatus: "1", dateDelivered: currentDateToTZ});
+            const res = await putData("orders", {id: i.id, updateStatus: "1", dateDelivered: currentDateToTZ});
             console.log(res);
             displayAlert(res[0],res[1].message);
             setTimeout(function (){
@@ -60,7 +60,7 @@ function renderOrdersToPickUp(list) {
 
         let itemClick = item.querySelector("a");
         itemClick.addEventListener("click",async () => {
-            const res = await putData("orders", i.id ,{updateStatus: "2", dateDelivered: currentDateToTZ});
+            const res = await putData("orders", {id: i.id, updateStatus: "2", dateDelivered: currentDateToTZ});
             console.log(res);
             displayAlert(res[0],res[1].message);
             setTimeout(function (){

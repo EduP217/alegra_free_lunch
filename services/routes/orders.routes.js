@@ -111,9 +111,9 @@ router.post('/', async (req, res) => {
     return res.status(201).send(message);
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
     //console.log(req);
-    let orderId = req.params.id;
+    let orderId = req.body.id;
     let updateStatus = req.body.updateStatus;
     let dateDelivered = req.body.dateDelivered;
 

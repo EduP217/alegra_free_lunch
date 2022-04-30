@@ -1,5 +1,6 @@
 const basepath = 'https://edup217.github.io/alegra_free_lunch/client';
-const apipath = 'http://lb-alegra-test-314990600.us-east-1.elb.amazonaws.com/api/v1';
+//const apipath = 'http://lb-alegra-test-314990600.us-east-1.elb.amazonaws.com/api/v1';
+const apipath = 'https://oeakfbixsh.execute-api.us-east-1.amazonaws.com/api/v1';
 //const apipath = 'http://localhost:3000/api/v1';
 const currentDate = new Date();
 const currentDateToTZ = `${currentDate.getUTCFullYear()}-${leadZeros(currentDate.getUTCMonth()+1)}-${currentDate.getUTCDate()}T${leadZeros(currentDate.getUTCHours())}:${leadZeros(currentDate.getUTCMinutes())}:${leadZeros(currentDate.getUTCSeconds())}Z`;
@@ -58,8 +59,8 @@ function postData(url, data) {
     .catch((res) => [0,res]);
 }
 
-function putData(url, id, data) {
-    return fetch(`${apipath}/${url}/${id}`, { 
+function putData(url, data) {
+    return fetch(`${apipath}/${url}`, { 
         method: 'PUT', 
         headers: { 'Content-Type': 'application/json' }, 
         body: JSON.stringify(data) 

@@ -11,7 +11,7 @@ async function init() {
     document.getElementById("btn-modal-purchase").addEventListener("click",async () => {
         let pId = document.getElementById("inp-purchased-id").value;
         let pStatus = document.getElementById("pstatus").value;
-        const res = await putData("warehouse", pId ,{updateStatus: pStatus, dateReceived: currentDateToTZ});
+        const res = await putData("warehouse", {id:pId, updateStatus: pStatus, dateReceived: currentDateToTZ});
         console.log(res);
         displayAlert(res[0],res[1].message);
         setTimeout(function (){

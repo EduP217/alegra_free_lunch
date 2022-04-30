@@ -1,0 +1,47 @@
+{
+    "pending": [
+        {
+            "id": "OR-006",
+            "food": "Chicken Salad",
+            "ordered": "29/04/2022 10:15:00",
+            "image": "images/R-003"
+        }
+    ],
+    "pick-up": [
+        {
+            "id": "OR-005",
+            "food": "Grilled Meat with rice and mashed potatoes",
+            "ordered": "29/04/2022 12:15:00",
+            "image": "images/R-002"
+        },
+        {
+            "id": "OR-004",
+            "food": "Mechadong Baka with lettuce salad",
+            "ordered": "29/04/2022 10:15:00",
+            "image": "images/R-001"
+        }
+    ],
+    "history": [
+        {
+            "id": "OR-003",
+            "food": "Mechadong Baka with lettuce salad",
+            "ordered": "29/04/2022 10:15:00",
+            "delivered": "29/04/2022 15:15:00",
+            "status": "delivered"
+        },
+        {
+            "id": "OR-002",
+            "food": "Chicken Salad",
+            "ordered": "29/04/2022 10:15:00",
+            "delivered": "29/04/2022 15:15:00",
+            "status": "delivered"
+        },
+        {
+            "id": "OR-001",
+            "food": "Grilled Meat with rice and mashed potatoes",
+            "ordered": "29/04/2022 10:15:00",
+            "delivered": "29/04/2022 15:15:00",
+            "status": "delivered"
+        }
+    ]
+}

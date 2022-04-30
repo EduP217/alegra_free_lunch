@@ -64,8 +64,8 @@
     "purchase":[
         {
             "id": "PI-003",
-            "purchased": "20/04/2022 10:15:00",
-            "received": "29/04/2022 17:15:00",
+            "purchased": "2022-04-29T10:15:00Z",
+            "received": "2022-04-29T17:15:00Z",
             "status": "completed",
             "ingredients": [
                 {
@@ -112,8 +112,8 @@
         },
         {
             "id": "PI-002",
-            "purchased": "10/04/2022 10:15:00",
-            "received": "15/04/2022 17:15:00",
+            "purchased": "2022-04-29T10:15:00Z",
+            "received": "2022-04-29T17:15:00Z",
             "status": "rejected",
             "ingredients": [
                 {
@@ -132,8 +132,8 @@
         },
         {
             "id": "PI-001",
-            "purchased": "01/03/2022 10:15:00",
-            "received": "05/04/2022 17:15:00",
+            "purchased": "2022-04-29T10:15:00Z",
+            "received": "2022-04-29T17:15:00Z",
             "status": "rejected",
             "ingredients": [
                 {

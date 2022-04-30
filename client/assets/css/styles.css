@@ -39,10 +39,10 @@
     height: 350px;
 }
 
-#item-alert-message {
+#item-alert-container {
     position: absolute;
-    top: 20px;
+    top: 70px;
     right: 20px;
-    width: 300px;
+    width: 350px;
     min-height: 60px;
 }

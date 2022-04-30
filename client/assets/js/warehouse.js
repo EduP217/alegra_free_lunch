@@ -74,6 +74,25 @@ function renderPurchaseHistory(list) {
 async function purcharseIngredients(){
     const res = await postData("warehouse", {datePurchased: currentDateToTZ});
     console.log(res);
+
+    const root = document.getElementById('item-alert-container');
+    const template = document.querySelector('#alertTemplate');
+    let item = template.content.cloneNode(true);
+
+    let alert = item.querySelector(".item-alert-message");
+    if(res[0] == 1){
+        alert.classList.add("alert-success");
+    } else {
+        alert.classList.add("alert-danger");
+    }
+    alert.insertAdjacentHTML("afterbegin", res[1].message);
+    alert.classList.add("show");
+    
+    root.append(alert);
+
+    setTimeout(function (){
+        location.reload();
+    }, 1000);
 }
 
 init();

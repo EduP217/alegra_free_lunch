@@ -80,7 +80,11 @@ async function purchaseOrder(){
     const res = await postData("orders", {dateOrdered: currentDateToTZ});
     console.log(res);
 
-    let alert = document.querySelector("#item-alert-message");
+    const root = document.getElementById('item-alert-container');
+    const template = document.querySelector('#alertTemplate');
+    let item = template.content.cloneNode(true);
+
+    let alert = item.querySelector(".item-alert-message");
     if(res[0] == 1){
         alert.classList.add("alert-success");
     } else {
@@ -88,6 +92,12 @@ async function purchaseOrder(){
     }
     alert.insertAdjacentHTML("afterbegin", res[1].message);
     alert.classList.add("show");
+
+    root.append(alert);
+
+    setTimeout(function (){
+        location.reload();
+    }, 1000);
 }
 
 init();

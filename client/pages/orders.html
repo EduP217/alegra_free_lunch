@@ -31,6 +31,11 @@
         </div>
     </header>
     <main>
+        <template id="alertTemplate">
+            <div class="alert alert-dismissible item-alert-message fade" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </template>
         <template id="orderhistoryrow">
             <tr>
                 <th scope="row">1</th>
@@ -117,9 +122,7 @@
             </ul>
         </div>
 
-        <div id="item-alert-message" class="alert alert-dismissible fade" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <div id="item-alert-container"></div>
     </footer>
 
     <!-- JavaScript Bundle with Popper -->

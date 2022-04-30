@@ -1,7 +1,7 @@
 const basepath = 'https://edup217.github.io/alegra_free_lunch/client';
 const apipath = 'http://lb-alegra-test-314990600.us-east-1.elb.amazonaws.com/api/v1';
 const currentDate = new Date();
-const currentDateToTZ = `${currentDate.getFullYear()}-${leadZeros(currentDate.getMonth()+1)}-${currentDate.getDate()}T${leadZeros(currentDate.getHours())}:${leadZeros(currentDate.getMinutes())}:${leadZeros(currentDate.getSeconds())}Z`;
+const currentDateToTZ = `${currentDate.getUTCFullYear()}-${leadZeros(currentDate.getUTCMonth()+1)}-${currentDate.getUTCDate()}T${leadZeros(currentDate.getUTCHours())}:${leadZeros(currentDate.getUTCMinutes())}:${leadZeros(currentDate.getUTCSeconds())}Z`;
 console.log(currentDateToTZ);
 const months = {
     0: 'January',

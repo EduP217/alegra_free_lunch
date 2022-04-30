@@ -30,6 +30,11 @@
         </div>
     </header>
     <main>
+        <template id="alertTemplate">
+            <div class="alert alert-dismissible item-alert-message fade" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </template>
         <template id="item-table-ingredients">
             <tr>
                 <th scope="row">2</th>
@@ -100,6 +105,8 @@
                 <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
             </ul>
         </div>
+
+        <div id="item-alert-container"></div>
     </footer>
 
     <!-- JavaScript Bundle with Popper -->

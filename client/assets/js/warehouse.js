@@ -28,10 +28,15 @@ function renderWarehouse(list) {
         let itemId = item.querySelector("th");
         let itemCol = item.querySelectorAll("td");
 
+        let itemStatus = "Available";
+        if(i.status == "0"){
+            itemStatus = "Empty";
+        }
+
         itemId.innerHTML = i.id;
         itemCol[0].innerHTML = i.name;
         itemCol[1].innerHTML = i.stock;
-        itemCol[2].innerHTML = i.status;
+        itemCol[2].innerHTML = itemStatus;
 
         tbody.appendChild(item);
     }

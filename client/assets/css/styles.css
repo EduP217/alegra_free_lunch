@@ -24,3 +24,13 @@
 #hanging-warehouse .recipe-ingredients {
     max-height: 500px;
 }
+
+#orders-cards-container .card-title {
+    background-color: #0000005e;
+    padding: 0.3rem;
+}
+
+#orders-cards-container .card-text {
+    background-color: #0000005e;
+    padding: 0 0.3rem;
+}

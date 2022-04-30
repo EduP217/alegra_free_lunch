@@ -21,6 +21,8 @@ function renderOrdersOnHold(list) {
 
         let itemOrdered = new Date(i.ordered);
         console.log(itemOrdered);
+        let diffTimeInMinutes = getMinutesBetweenDates(itemOrdered,currentDate);
+        itemTime.innerHTML = `${diffTimeInMinutes} min.`;
         root.appendChild(item);
     }
 }
@@ -31,7 +33,7 @@ function renderOrdersToPickUp(list) {
     for (const i of list) {
         let item = template.content.cloneNode(true);
         let itemImage = item.querySelector(".item-image");
-        let itemName = item.querySelector(".item-image");
+        let itemName = item.querySelector(".item-name");
         let itemTime = item.querySelector(".item-time");
 
         itemName.innerHTML = i.food;
@@ -40,6 +42,8 @@ function renderOrdersToPickUp(list) {
 
         let itemOrdered = new Date(i.ordered);
         console.log(itemOrdered);
+        let diffTimeInMinutes = getMinutesBetweenDates(itemOrdered,currentDate);
+        itemTime.innerHTML = `${diffTimeInMinutes} min.`;
         root.appendChild(item);
     }
 }
@@ -52,10 +56,13 @@ function renderOrdersHistory(list) {
         let itemId = item.querySelector("th");
         let itemCols = item.querySelectorAll("td");
 
+        let dateOrdered = new Date(i.ordered);
+        let dateDelivered = new Date(i.delivered);
+
         itemId.innerHTML = i.id;
         itemCols[0].innerHTML = i.food;
-        itemCols[1].innerHTML = i.ordered;
-        itemCols[2].innerHTML = i.delivered;
+        itemCols[1].innerHTML = formatDateToLocal(dateOrdered);
+        itemCols[2].innerHTML = formatDateToLocal(dateDelivered);
         itemCols[3].innerHTML = i.status;
 
         tbody.appendChild(item);

@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     await purchase.map(async p => {
         let purchaseIngredientsFiltered = utilitaries.getFilteredByKey(purchaseIngredients, "purchase_id", p.id);
         let ingredientsByPurchase = [];
-        //console.log(ingredientsByPurchase);
+        //console.debug(ingredientsByPurchase);
         await purchaseIngredientsFiltered.forEach(pi => {
             let ingredient = utilitaries.getFilteredByKey(ingredients, "id", pi.ingredient_id)[0];
             ingredientsByPurchase.push({
@@ -31,27 +31,31 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    //console.debug(req.body);
     let ingredients = await utilitaries.readFromCSV('/data/ingredients.csv');
     let emptyIngredients = utilitaries.getFilteredByKey(ingredients, "status", 0);
+    //console.debug(emptyIngredients);
     if (emptyIngredients.length > 0) {
         const marketPlace = await utilitaries.getMarketPlaceBuy(emptyIngredients);
+        //console.debug(marketPlace);
         if (marketPlace.length > 0) {
             let purchases = await utilitaries.readFromCSV('/data/purchase.csv');
+            //console.debug(purchases);
             let newId = purchases.length;
             newId = `PI-${utilitaries.zeroPad(newId,3)}`;
             let newPurchase = {
                 "id": newId,
-                "purchased": req.datePurchased,
+                "purchased": req.body.datePurchased,
                 "received": "",
                 "status": "0"
             };
             purchases.push(newPurchase);
 
             let purchaseOptions = [
-                {id: 'id',title: 'id'},
-                {id: 'purchased',title: 'purchased'},
-                {id: 'received',title: 'received'},
-                {id: 'status',title: 'status'}
+                {key: 'id',header: 'id'},
+                {key: 'purchased',header: 'purchased'},
+                {key: 'received',header: 'received'},
+                {key: 'status',header: 'status'}
             ];
             utilitaries.writeCSV('/data/purchase.csv', purchaseOptions, purchases);
             
@@ -59,7 +63,7 @@ router.post('/', async (req, res) => {
             marketPlace.forEach(mp => {
                 purchaseIngredients.push({"purchase_id":newId,"ingredient_id":mp.id});
                 
-                emptyIngredients.map(i => {
+                ingredients.map(i => {
                     if(i.id == mp.id){
                         i.stock = mp.quantity;
                         i.status = 1;
@@ -68,24 +72,22 @@ router.post('/', async (req, res) => {
             });
 
             let purchaseIngredientsOptions = [
-                {id: 'purchase_id',title: 'purchase_id'},
-                {id: 'ingredient_id',title: 'ingredient_id'}
+                {key: 'purchase_id',header: 'purchase_id'},
+                {key: 'ingredient_id',header: 'ingredient_id'}
             ];
             utilitaries.writeCSV('/data/purchase-ingredients.csv', purchaseIngredientsOptions, purchaseIngredients);
 
-            ingredients = ingredients.concat(emptyIngredients);
-
             let ingredientsOptions = [
-                {id: 'id',title: 'id'},
-                {id: 'name',title: 'name'},
-                {id: 'stock',title: 'stock'},
-                {id: 'status',title: 'status'}
+                {key: 'id',header: 'id'},
+                {key: 'name',header: 'name'},
+                {key: 'stock',header: 'stock'},
+                {key: 'status',header: 'status'}
             ];
-            utilitaries.writeCSV('/data/ingredients.csv', ingredientsOptions, purchaseIngredients);
+            utilitaries.writeCSV('/data/ingredients.csv', ingredientsOptions, ingredients);
         }
     }
 
-    return res.status(201);
+    return res.status(201).send({});
 });
 
 module.exports = router;

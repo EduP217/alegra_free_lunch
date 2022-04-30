@@ -6,7 +6,8 @@ const cookieParser = require('cookie-parser');
 const rTracer = require('cls-rtracer');
 const path = require('path');
 global.appRoot = path.resolve(__dirname);
-global.marketplaceURL = 'https://recruitment.alegra.com/api/farmers-market/buy';
+//global.marketplaceURL = 'https://recruitment.alegra.com/api/farmers-market/buy';
+global.marketplaceURL = 'http://localhost:3000/buy';
 
 const app = express();
 
@@ -111,6 +112,10 @@ app.put('/usuario', function (req, res) {
 
     res.send(respuesta);
 });*/
+
+app.get('/buy', function (req, res) {
+    res.send({"quantitySold": 2});
+});
 
 app.use((req, res, next) => {
     respuesta = {

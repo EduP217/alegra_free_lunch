@@ -1,5 +1,6 @@
 const basepath = 'https://edup217.github.io/alegra_free_lunch/client';
 const apipath = 'http://lb-alegra-test-314990600.us-east-1.elb.amazonaws.com/api/v1';
+//const apipath = 'http://localhost:3000/api/v1';
 const currentDate = new Date();
 const currentDateToTZ = `${currentDate.getUTCFullYear()}-${leadZeros(currentDate.getUTCMonth()+1)}-${currentDate.getUTCDate()}T${leadZeros(currentDate.getUTCHours())}:${leadZeros(currentDate.getUTCMinutes())}:${leadZeros(currentDate.getUTCSeconds())}Z`;
 console.log(currentDateToTZ);
@@ -55,4 +56,32 @@ function postData(url, data) {
     .then((res) => res.json())
     .then((data) => [1,data])
     .catch((res) => [0,res]);
+}
+
+function putData(url, id, data) {
+    return fetch(`${apipath}/${url}/${id}`, { 
+        method: 'PUT', 
+        headers: { 'Content-Type': 'application/json' }, 
+        body: JSON.stringify(data) 
+    })
+    .then((res) => res.json())
+    .then((data) => [1,data])
+    .catch((res) => [0,res]);
+}
+
+function displayAlert(status, message) {
+    const root = document.getElementById('item-alert-container');
+    const template = document.querySelector('#alertTemplate');
+    let item = template.content.cloneNode(true);
+
+    let alert = item.querySelector(".item-alert-message");
+    if(status == 1){
+        alert.classList.add("alert-success");
+    } else {
+        alert.classList.add("alert-danger");
+    }
+    alert.insertAdjacentHTML("afterbegin", message);
+    alert.classList.add("show");
+
+    root.append(alert);
 }

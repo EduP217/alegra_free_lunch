@@ -84,7 +84,7 @@ router.post('/', async (req, res) => {
         utilitaries.writeCSV('/data/ingredients.csv', ingredientsOptions, ingredients);
 
         let orders = await utilitaries.readFromCSV('/data/orders.csv');
-        let newId = `OR-${utilitaries.zeroPad(orders.length,3)}`;
+        let newId = `OR-${utilitaries.zeroPad(orders.length+1,3)}`;
         orders.push({
             "id": newId,
             "recipe_id": randomRecipe.id,
@@ -109,6 +109,59 @@ router.post('/', async (req, res) => {
 
     console.log(message);
     return res.status(201).send(message);
+});
+
+router.put('/:id', async (req, res) => {
+    //console.log(req);
+    let orderId = req.params.id;
+    let updateStatus = req.body.updateStatus;
+    let dateDelivered = req.body.dateDelivered;
+
+    let orders = await utilitaries.readFromCSV('/data/orders.csv');
+    await Promise.all(orders.map(o => {
+        if (o.id == orderId) {
+            o.status = updateStatus;
+            if (updateStatus == "2") {
+                o.delivered = dateDelivered;
+            }
+        }
+    }));
+
+    let ordersOptions = [{
+            key: 'id',
+            header: 'id'
+        },
+        {
+            key: 'recipe_id',
+            header: 'recipe_id'
+        },
+        {
+            key: 'ordered',
+            header: 'ordered'
+        },
+        {
+            key: 'delivered',
+            header: 'delivered'
+        },
+        {
+            key: 'status',
+            header: 'status'
+        }
+    ];
+    utilitaries.writeCSV('/data/orders.csv', ordersOptions, orders);
+
+    let message = {
+        "message": `The order <b>${orderId}</b> is ready to Pick-up.`
+    };
+
+    if (updateStatus == "2") {
+        message = {
+            "message": `The order <b>${orderId}</b> has been delivered.`
+        };
+    }
+
+    console.log(message);
+    return res.status(200).send(message);
 });
 
 module.exports = router;

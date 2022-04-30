@@ -1,9 +1,23 @@
+const myModal = new bootstrap.Modal(document.getElementById('purchaseModal'), {
+    keyboard: false
+});
+
 async function init() {
     let warehouse = await getData("warehouse");
     renderWarehouse(warehouse.ingredients);
     renderPurchaseHistory(warehouse.purchase.reverse());
 
     document.getElementById("request-empty-ingredients").addEventListener("click",purcharseIngredients);
+    document.getElementById("btn-modal-purchase").addEventListener("click",async () => {
+        let pId = document.getElementById("inp-purchased-id").value;
+        let pStatus = document.getElementById("pstatus").value;
+        const res = await putData("warehouse", pId ,{updateStatus: pStatus, dateReceived: currentDateToTZ});
+        console.log(res);
+        displayAlert(res[0],res[1].message);
+        setTimeout(function (){
+            location.reload();
+        }, 1000);
+    });    
 }
 
 function renderWarehouse(list) {
@@ -67,6 +81,13 @@ function renderPurchaseHistory(list) {
 
         itemDescription.innerHTML = iDescription.join(", ");
 
+        let itemClick = item.querySelector("a");
+        itemClick.addEventListener("click",(e)=>{
+            document.querySelector("#inp-purchased-id").value = i.id;
+            document.querySelector("#modal-purchased-id").innerHTML = i.id;
+            myModal.toggle();
+        });
+
         root.appendChild(item);
     }
 }
@@ -75,20 +96,7 @@ async function purcharseIngredients(){
     const res = await postData("warehouse", {datePurchased: currentDateToTZ});
     console.log(res);
 
-    const root = document.getElementById('item-alert-container');
-    const template = document.querySelector('#alertTemplate');
-    let item = template.content.cloneNode(true);
-
-    let alert = item.querySelector(".item-alert-message");
-    if(res[0] == 1){
-        alert.classList.add("alert-success");
-    } else {
-        alert.classList.add("alert-danger");
-    }
-    alert.insertAdjacentHTML("afterbegin", res[1].message);
-    alert.classList.add("show");
-    
-    root.append(alert);
+    displayAlert(res[0],res[1].message);
 
     setTimeout(function (){
         location.reload();

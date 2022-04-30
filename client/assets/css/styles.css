@@ -37,6 +37,7 @@
 
 #orders-cards-container .item-image {
     height: 350px;
+    object-fit: cover;
 }
 
 #item-alert-container {

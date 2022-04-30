@@ -78,7 +78,8 @@
                         </table>
                     </div>
                     <div class="pb-2">
-                        <button id="request-empty-ingredients" class="btn btn-outline-primary" type="button">Request Empty Ingredients</button>
+                        <button id="request-empty-ingredients" class="btn btn-outline-primary" type="button">Request
+                            Empty Ingredients</button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-5">
@@ -107,6 +108,34 @@
         </div>
 
         <div id="item-alert-container"></div>
+
+        <div class="modal" id="purchaseModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Purchase Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="inp-purchased-id">
+                        <p>
+                            Edit the purchase status with the ID: <b><span id="modal-purchased-id"></span></b>
+                        </p>
+                        <label for="pstatus">Status</label>
+                        <select name="pstatus" id="pstatus" class="form-select">
+                            <option selected>Select option</option>
+                            <option value="1">Canceled</option>
+                            <option value="2">Completed</option>
+                            <option value="3">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="btn-modal-purchase">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- JavaScript Bundle with Popper -->

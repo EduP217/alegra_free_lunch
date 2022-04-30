@@ -25,6 +25,17 @@ function renderOrdersOnHold(list) {
         console.log(itemOrdered);
         let diffTimeInMinutes = getMinutesBetweenDates(itemOrdered,currentDate);
         itemTime.innerHTML = `${diffTimeInMinutes} min.`;
+
+        let itemClick = item.querySelector("a");
+        itemClick.addEventListener("click",async () => {
+            const res = await putData("orders", i.id ,{updateStatus: "1", dateDelivered: currentDateToTZ});
+            console.log(res);
+            displayAlert(res[0],res[1].message);
+            setTimeout(function (){
+                location.reload();
+            }, 1000);
+        });
+
         root.appendChild(item);
     }
 }
@@ -46,6 +57,17 @@ function renderOrdersToPickUp(list) {
         console.log(itemOrdered);
         let diffTimeInMinutes = getMinutesBetweenDates(itemOrdered,currentDate);
         itemTime.innerHTML = `${diffTimeInMinutes} min.`;
+
+        let itemClick = item.querySelector("a");
+        itemClick.addEventListener("click",async () => {
+            const res = await putData("orders", i.id ,{updateStatus: "2", dateDelivered: currentDateToTZ});
+            console.log(res);
+            displayAlert(res[0],res[1].message);
+            setTimeout(function (){
+                location.reload();
+            }, 1000);
+        });
+
         root.appendChild(item);
     }
 }
@@ -80,20 +102,7 @@ async function purchaseOrder(){
     const res = await postData("orders", {dateOrdered: currentDateToTZ});
     console.log(res);
 
-    const root = document.getElementById('item-alert-container');
-    const template = document.querySelector('#alertTemplate');
-    let item = template.content.cloneNode(true);
-
-    let alert = item.querySelector(".item-alert-message");
-    if(res[0] == 1){
-        alert.classList.add("alert-success");
-    } else {
-        alert.classList.add("alert-danger");
-    }
-    alert.insertAdjacentHTML("afterbegin", res[1].message);
-    alert.classList.add("show");
-
-    root.append(alert);
+    displayAlert(res[0],res[1].message);
 
     setTimeout(function (){
         location.reload();

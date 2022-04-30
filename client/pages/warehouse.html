@@ -40,7 +40,7 @@
         </template>
         <template id="item-purchase-history">
             <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <span class="fs-3 text-primary"><i class="bi-box-seam"></i></span>
+                <span class="fs-3 text-primary item-icon"><i class="bi-box-seam"></i></span>
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
                         <h6 class="mb-0 item-purchased">P: 20/04/2022 10:15:00</h6>
@@ -57,7 +57,7 @@
             <h2 class="pb-2 border-bottom"><span class="text-info"><i class="bi-basket"></i></span> Warehouse
             </h2>
             <div class="row g-5 py-5 row-cols-1">
-                <div class="col-md-7 col-lg-8">
+                <div class="col-md-6 col-lg-7">
                     <h4 class="pb-2">Stock Ingredients</h4>
                     <div class="table-responsive recipe-ingredients">
                         <table class="table" id="table-warehouse">
@@ -73,10 +73,10 @@
                         </table>
                     </div>
                     <div class="pb-2">
-                        <button class="btn btn-outline-primary" type="button">Request Empty Ingredients</button>
+                        <button id="request-empty-ingredients" class="btn btn-outline-primary" type="button">Request Empty Ingredients</button>
                     </div>
                 </div>
-                <div class="col-md-5 col-lg-4">
+                <div class="col-md-6 col-lg-5">
                     <h4 class="pb-2">Food Plaza Purchase History</h4>
                     <div class="list-group food-historic-request" id="list-purchase-history"></div>
                 </div>

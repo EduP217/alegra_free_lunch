@@ -59,6 +59,8 @@ router.post('/', async (req, res) => {
         message = {
             "message": `There are not enough ingredients to prepare the <b>'${randomRecipe.name}'</b>`
         };
+        console.log(message);
+        return res.status(500).send(message);
     } else {
         console.log(ingredients);
 

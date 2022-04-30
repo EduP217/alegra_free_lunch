@@ -1,9 +1,11 @@
 async function init() {
-    let orders = await getData("data/orders.json");
+    let orders = await getData("orders");
 
-    renderOrdersOnHold(orders.pending);
-    renderOrdersToPickUp(orders["pick-up"]);
-    renderOrdersHistory(orders.history);
+    renderOrdersOnHold(orders.pending.reverse());
+    renderOrdersToPickUp(orders["pick-up"].reverse());
+    renderOrdersHistory(orders.history.reverse());
+
+    document.getElementById("request-new-order").addEventListener("click",purchaseOrder);
 }
 
 function renderOrdersOnHold(list) {
@@ -59,14 +61,33 @@ function renderOrdersHistory(list) {
         let dateOrdered = new Date(i.ordered);
         let dateDelivered = new Date(i.delivered);
 
+        let orderStatus = "Failed";
+        if(i.status == 2){
+            orderStatus = "Completed";
+        }
+
         itemId.innerHTML = i.id;
         itemCols[0].innerHTML = i.food;
         itemCols[1].innerHTML = formatDateToLocal(dateOrdered);
         itemCols[2].innerHTML = formatDateToLocal(dateDelivered);
-        itemCols[3].innerHTML = i.status;
+        itemCols[3].innerHTML = orderStatus;
 
         tbody.appendChild(item);
     }
+}
+
+async function purchaseOrder(){
+    const res = await postData("orders", {dateOrdered: currentDateToTZ});
+    console.log(res);
+
+    let alert = document.querySelector("#item-alert-message");
+    if(res[0] == 1){
+        alert.classList.add("alert-success");
+    } else {
+        alert.classList.add("alert-danger");
+    }
+    alert.insertAdjacentHTML("afterbegin", res[1].message);
+    alert.classList.add("show");
 }
 
 init();

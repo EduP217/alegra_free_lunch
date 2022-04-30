@@ -34,10 +34,16 @@ router.post('/', async (req, res) => {
     //console.debug(req.body);
     let ingredients = await utilitaries.readFromCSV('/data/ingredients.csv');
     let emptyIngredients = utilitaries.getFilteredByKey(ingredients, "status", 0);
+    let message = {
+        "message": "Nothing to purchase yet."
+    };
     //console.debug(emptyIngredients);
     if (emptyIngredients.length > 0) {
         const marketPlace = await utilitaries.getMarketPlaceBuy(emptyIngredients);
         //console.debug(marketPlace);
+        message = {
+            "message": "MarketPlace without purchasable stock."
+        };
         if (marketPlace.length > 0) {
             let purchases = await utilitaries.readFromCSV('/data/purchase.csv');
             //console.debug(purchases);
@@ -84,10 +90,17 @@ router.post('/', async (req, res) => {
                 {key: 'status',header: 'status'}
             ];
             utilitaries.writeCSV('/data/ingredients.csv', ingredientsOptions, ingredients);
+
+            message = {
+                "message": "Ingredients Purchased correctly."
+            }
+            return res.status(201).send(message);
+        } else {
+            return res.status(500).send(message);
         }
     }
 
-    return res.status(201).send({});
+    return res.status(500).send(message);
 });
 
 module.exports = router;

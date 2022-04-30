@@ -1,6 +1,8 @@
 const basepath = 'https://edup217.github.io/alegra_free_lunch/client';
+const apipath = 'http://lb-alegra-test-314990600.us-east-1.elb.amazonaws.com/api/v1';
 const currentDate = new Date();
-console.log(currentDate);
+const currentDateToTZ = `${currentDate.getFullYear()}-${leadZeros(currentDate.getMonth()+1)}-${currentDate.getDate()}T${leadZeros(currentDate.getHours())}:${leadZeros(currentDate.getMinutes())}:${leadZeros(currentDate.getSeconds())}Z`;
+console.log(currentDateToTZ);
 const months = {
     0: 'January',
     1: 'February',
@@ -17,7 +19,7 @@ const months = {
 }
 
 function getData(url) {
-    return fetch(`${basepath}/${url}`).then((res) => res.json()).then((data) => data);
+    return fetch(`${apipath}/${url}`).then((res) => res.json()).then((data) => data);
 }
 
 function getMinutesBetweenDates(startDate, endDate) {
@@ -31,4 +33,26 @@ function formatDateToLocal(date) {
 
 function leadZeros(num) {
     return num.toString().padStart(2,'0');
+}
+
+function GetSortOrder(prop) {    
+    return function(a, b) {    
+        if (a[prop] > b[prop]) {    
+            return 1;    
+        } else if (a[prop] < b[prop]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}
+
+function postData(url, data) {
+    return fetch(`${apipath}/${url}`, { 
+        method: 'POST', 
+        headers: { 'Content-Type': 'application/json' }, 
+        body: JSON.stringify(data) 
+    })
+    .then((res) => res.json())
+    .then((data) => [1,data])
+    .catch((res) => [0,res]);
 }

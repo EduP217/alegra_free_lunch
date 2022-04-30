@@ -34,3 +34,15 @@
     background-color: #0000005e;
     padding: 0 0.3rem;
 }
+
+#orders-cards-container .item-image {
+    height: 350px;
+}
+
+#item-alert-message {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    min-height: 60px;
+}

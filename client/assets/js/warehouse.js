@@ -1,7 +1,9 @@
 async function init() {
-    let warehouse = await getData("data/warehouse.json");
+    let warehouse = await getData("warehouse");
     renderWarehouse(warehouse.ingredients);
-    renderPurchaseHistory(warehouse.purchase);
+    renderPurchaseHistory(warehouse.purchase.reverse());
+
+    document.getElementById("request-empty-ingredients").addEventListener("click",purcharseIngredients);
 }
 
 function renderWarehouse(list) {
@@ -27,14 +29,36 @@ function renderPurchaseHistory(list) {
 
     for (const i of list) {
         let item = template.content.cloneNode(true);
+        let itemIcon = item.querySelector(".item-icon");
         let itemPurchased = item.querySelector(".item-purchased");
         let itemReceived = item.querySelector(".item-received");
         let itemDescription = item.querySelector(".item-description");
         let itemStatus = item.querySelector(".item-status");
 
+        let purchaseStatus = "Purchased";
+        if(i.status == 1){
+            purchaseStatus = "Canceled";
+            itemIcon.classList.remove("text-primary");
+            itemIcon.classList.add("text-danger");
+            itemStatus.classList.remove("text-primary");
+            itemStatus.classList.add("text-danger");
+        } else if(i.status == 2){
+            purchaseStatus = "Completed";
+            itemIcon.classList.remove("text-primary");
+            itemIcon.classList.add("text-success");
+            itemStatus.classList.remove("text-primary");
+            itemStatus.classList.add("text-success");
+        } else if(i.status == 3){
+            purchaseStatus = "Rejected";
+            itemIcon.classList.remove("text-primary");
+            itemIcon.classList.add("text-danger");
+            itemStatus.classList.remove("text-primary");
+            itemStatus.classList.add("text-danger");
+        }
+
         itemPurchased.innerHTML = `P: ${i.purchased}`;
         itemReceived.innerHTML = `R: ${i.received}`;
-        itemStatus.innerHTML = i.status;
+        itemStatus.innerHTML = purchaseStatus;
 
         let iDescription = [];
         i.ingredients.forEach(el => {
@@ -47,5 +71,9 @@ function renderPurchaseHistory(list) {
     }
 }
 
+async function purcharseIngredients(){
+    const res = await postData("warehouse", {datePurchased: currentDateToTZ});
+    console.log(res);
+}
 
 init();

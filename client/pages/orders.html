@@ -64,7 +64,7 @@
             </a>
         </template>
         <div class="text-center pt-2">
-            <button type="button" class="btn btn-success btn-lg">New Order</button>
+            <button type="button" class="btn btn-success btn-lg" id="request-new-order">New Order</button>
         </div>
         <div class="container px-4 py-5" id="hanging-orders">
             <h2 class="pb-2 border-bottom"><span class="text-info"><i class="bi-card-text"></i></span> Orders </h2>
@@ -115,6 +115,10 @@
                 <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
                 <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
             </ul>
+        </div>
+
+        <div id="item-alert-message" class="alert alert-dismissible fade" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </footer>
 

@@ -1,5 +1,5 @@
 async function init() {
-    let recipes = await getData("data/recipes.json");
+    let recipes = await getData("recipes");
     renderRecipes(recipes);
 }
 
